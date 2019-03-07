@@ -358,7 +358,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 688127764}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -270676630, guid: 220bd076a36df1a458efd70c63261dd5, type: 3}
+  m_Script: {fileID: -270676630, guid: 6cee18d2e14a5c24585ebf7c4d696539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Bubble_Prefab: {fileID: 151876, guid: d921a83bddc7d34489d1182ae4bb34b3, type: 2}
@@ -380,7 +380,6 @@ GameObject:
   - component: {fileID: 703138874}
   - component: {fileID: 703138887}
   - component: {fileID: 703138880}
-  - component: {fileID: 703138881}
   - component: {fileID: 703138883}
   - component: {fileID: 703138882}
   - component: {fileID: 703138885}
@@ -400,7 +399,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 703138873}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 221254865, guid: 220bd076a36df1a458efd70c63261dd5, type: 3}
+  m_Script: {fileID: 221254865, guid: 6cee18d2e14a5c24585ebf7c4d696539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   useSystemIO: 0
@@ -489,33 +488,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 703138873}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1158210168, guid: 220bd076a36df1a458efd70c63261dd5, type: 3}
+  m_Script: {fileID: -1158210168, guid: 6cee18d2e14a5c24585ebf7c4d696539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   timerPrefab: {fileID: 1644923134168576, guid: f44f4e95c35738a4fab0d0485cef5ef6,
     type: 2}
   timersContainer: {fileID: 510217377}
---- !u!114 &703138881
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 703138873}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -973018082, guid: 809c982a71515ed49a12280170d62432, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rawCopy: 1
-  flushInterval: -1
-  checkInterval: 3
-  storageType: net
-  traceFormat: xapi
-  host: https://rage-test.e-ucm.es/api/proxy/gleaner/collector/
-  trackingCode: 
-  debug: 1
-  username: 
-  password: 
 --- !u!114 &703138882
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -524,7 +502,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 703138873}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 231950515, guid: 220bd076a36df1a458efd70c63261dd5, type: 3}
+  m_Script: {fileID: 231950515, guid: 6cee18d2e14a5c24585ebf7c4d696539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &703138883
@@ -535,7 +513,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 703138873}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -929165909, guid: 220bd076a36df1a458efd70c63261dd5, type: 3}
+  m_Script: {fileID: -929165909, guid: 6cee18d2e14a5c24585ebf7c4d696539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 198356, guid: 9a591ead623668d469406b2a4c1ab690, type: 2}
@@ -547,7 +525,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 703138873}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 825682365, guid: 220bd076a36df1a458efd70c63261dd5, type: 3}
+  m_Script: {fileID: 825682365, guid: 6cee18d2e14a5c24585ebf7c4d696539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &703138886
@@ -558,7 +536,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 703138873}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1319210238, guid: 220bd076a36df1a458efd70c63261dd5, type: 3}
+  m_Script: {fileID: -1319210238, guid: 6cee18d2e14a5c24585ebf7c4d696539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryHolder: {fileID: 688127764}
@@ -574,7 +552,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 703138873}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -636692594, guid: 220bd076a36df1a458efd70c63261dd5, type: 3}
+  m_Script: {fileID: -636692594, guid: 6cee18d2e14a5c24585ebf7c4d696539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_EventMask:
@@ -713,7 +691,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 897000541}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -212723004, guid: 220bd076a36df1a458efd70c63261dd5, type: 3}
+  m_Script: {fileID: -212723004, guid: 6cee18d2e14a5c24585ebf7c4d696539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_HorizontalAxis: Horizontal
