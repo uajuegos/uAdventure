@@ -125,7 +125,7 @@
     </description>
     <voice name="" synthesizeAlways="no" />
   </character>
-  <scene id="Patio" start="yes" playerLayer="-1" playerScale="0.3644757" class="accesible" type="area">
+  <scene id="Patio" start="yes" playerLayer="-1" playerScale="0.2" class="accesible" type="area">
     <documentation>
     </documentation>
     <resources name="No name">
@@ -133,11 +133,123 @@
     </resources>
     <name>
     </name>
-    <default-initial-position x="1004" y="816" />
+    <default-initial-position x="290" y="802" />
+    <exits>
+      <exit rectangular="yes" x="1375" y="548" width="271" height="199" hasInfluenceArea="no" idTarget="Escaleras" destinyY="900" destinyX="700" destinyScale="0.7" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+    </exits>
+  </scene>
+  <scene id="Escaleras" start="no" playerLayer="-1" playerScale="0.7" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/StairsBackground.png" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="700" y="900" />
+    <exits>
+      <exit rectangular="yes" x="494" y="663" width="446" height="200" hasInfluenceArea="no" idTarget="Patio" destinyY="802" destinyX="1500" destinyScale="0.2" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+      <exit rectangular="yes" x="740" y="52" width="271" height="244" hasInfluenceArea="no" idTarget="Pasillo" destinyY="700" destinyX="650" destinyScale="0.2" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+    </exits>
+    <trajectory>
+      <node id="initial" x="680" y="881" scale="0.7" />
+      <node id="node7061" x="1300" y="800" scale="0.55" />
+      <node id="node3102" x="900" y="300" scale="0.3" />
+      <node id="node6281" x="1100" y="1000" scale="1" />
+      <initialnode id="initial" />
+      <side idStart="node7061" idEnd="node3102" length="640" />
+      <side idStart="node6281" idEnd="initial" length="436" />
+      <side idStart="node6281" idEnd="node7061" length="282" />
+    </trajectory>
+  </scene>
+  <scene id="Pasillo" start="no" playerLayer="-1" playerScale="0.2" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/CorridorBackground.png" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="650" y="700" />
+    <exits>
+      <exit rectangular="yes" x="584" y="463" width="172" height="193" hasInfluenceArea="no" idTarget="Escaleras" destinyY="900" destinyX="1200" destinyScale="0.7" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+      <exit rectangular="yes" x="93" y="264" width="121" height="643" hasInfluenceArea="no" idTarget="Aula" destinyY="800" destinyX="1500" destinyScale="0.4" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+      <exit rectangular="yes" x="1005" y="405" width="49" height="313" hasInfluenceArea="no" idTarget="Baño" destinyY="1000" destinyX="900" destinyScale="0.8" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+    </exits>
+  </scene>
+  <scene id="Aula" start="no" playerLayer="-1" playerScale="0.4" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/fondoclase.png" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="1500" y="800" />
+    <exits>
+      <exit rectangular="yes" x="1520" y="375" width="91" height="375" hasInfluenceArea="no" idTarget="Pasillo" destinyY="900" destinyX="250" destinyScale="0.6" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+    </exits>
+  </scene>
+  <scene id="Baño" start="no" playerLayer="-1" playerScale="0.8" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/Bathroom.png" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="900" y="1000" />
+    <exits>
+      <exit rectangular="yes" x="714" y="128" width="300" height="769" hasInfluenceArea="no" idTarget="Pasillo" destinyY="750" destinyX="950" destinyScale="0.3" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+    </exits>
   </scene>
   <object id="ItemId" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
     <resources name="No name">
       <asset type="image" uri="assets/special/EmptyImage.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </object>
+  <object id="Balon" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/balon.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </object>
+  <object id="Libro" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/BookIcon.png" />
       <asset type="icon" uri="assets/special/EmptyIcon.png" />
     </resources>
     <description>
