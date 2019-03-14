@@ -125,7 +125,7 @@
     </description>
     <voice name="" synthesizeAlways="no" />
   </character>
-  <scene id="Patio" start="yes" playerLayer="-1" playerScale="0.2" class="accesible" type="area">
+  <scene id="Patio" start="no" playerLayer="-1" playerScale="0.2" class="accesible" type="area">
     <documentation>
     </documentation>
     <resources name="No name">
@@ -219,6 +219,43 @@
       </exit>
     </exits>
   </scene>
+  <scene id="mfhgjhgfcvl" start="yes" playerLayer="-1" playerScale="1.44E-05" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/black.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="615" y="650" />
+    <exits>
+      <exit rectangular="yes" x="197" y="126" width="43" height="599" hasInfluenceArea="no" idTarget="Aula" destinyY="1024" destinyX="937" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+    </exits>
+    <active-areas>
+      <active-area id="ItemId1" rectangular="yes" x="382" y="355" width="853" height="455" hasInfluenceArea="no" behaviour="first-action">
+        <description>
+          <name>
+          </name>
+          <brief>
+          </brief>
+          <detailed>
+          </detailed>
+        </description>
+        <actions>
+          <use needsGoTo="yes" keepDistance="35" not-effects="no">
+            <effect>
+              <trigger-scene idTarget="Aula" x="979" y="810" />
+              <condition />
+              <macro-ref id="MacroId" />
+              <condition />
+            </effect>
+          </use>
+        </actions>
+      </active-area>
+    </active-areas>
+  </scene>
   <object id="ItemId" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
     <resources name="No name">
       <asset type="image" uri="assets/special/EmptyImage.png" />
@@ -261,4 +298,14 @@
       </detailed>
     </description>
   </object>
+  <macro id="MacroId">
+    <documentation>holahola</documentation>
+    <speak-player>Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.</speak-player>
+    <condition />
+    <show-text x="300" y="300" frontColor="#FFFFFFFF" borderColor="#000000FF" uri="">Yo seré vuestro sustituto durante los próximos días.</show-text>
+    <condition />
+    <speak-char idTarget="Chico">
+    </speak-char>
+    <condition />
+  </macro>
 </eAdventure>
