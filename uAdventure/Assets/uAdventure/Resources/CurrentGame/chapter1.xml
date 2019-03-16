@@ -32,7 +32,7 @@
     </description>
     <voice name="" synthesizeAlways="no" />
   </player>
-  <character id="Chica">
+  <character id="Allison">
     <resources name="No name">
       <asset type="standup" uri="assets/animation/AlisonLookingDown.eaa.xml" />
       <asset type="standdown" uri="assets/animation/AlisonLookingDown.eaa.xml" />
@@ -63,7 +63,7 @@
     </description>
     <voice name="" synthesizeAlways="no" />
   </character>
-  <character id="Chico">
+  <character id="Guille">
     <resources name="No name">
       <asset type="standup" uri="assets/animation/GuilleIdleDown.eaa.xml" />
       <asset type="standdown" uri="assets/animation/GuilleIdleDown.eaa.xml" />
@@ -94,12 +94,74 @@
     </description>
     <voice name="" synthesizeAlways="no" />
   </character>
-  <character id="Malota">
+  <character id="María">
     <resources name="No name">
       <asset type="standup" uri="assets/animation/MariaIdleUp.eaa.xml" />
       <asset type="standdown" uri="assets/animation/MariaIdleUp.eaa.xml" />
       <asset type="standright" uri="assets/animation/MariaIdleUp.eaa.xml" />
       <asset type="standleft" uri="assets/animation/MariaIdleUp.eaa.xml" />
+      <asset type="speakup" uri="assets/special/EmptyAnimation" />
+      <asset type="speakdown" uri="assets/special/EmptyAnimation" />
+      <asset type="speakright" uri="assets/special/EmptyAnimation" />
+      <asset type="speakleft" uri="assets/special/EmptyAnimation" />
+      <asset type="useright" uri="assets/special/EmptyAnimation" />
+      <asset type="useleft" uri="assets/special/EmptyAnimation" />
+      <asset type="walkup" uri="assets/special/EmptyAnimation" />
+      <asset type="walkdown" uri="assets/special/EmptyAnimation" />
+      <asset type="walkright" uri="assets/special/EmptyAnimation" />
+      <asset type="walkleft" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <textcolor showsSpeechBubble="no" bubbleBkgColor="#FFFFFF" bubbleBorderColor="#000000">
+      <frontcolor color="#FFFFFF" />
+      <bordercolor color="#000000" />
+    </textcolor>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <voice name="" synthesizeAlways="no" />
+  </character>
+  <character id="Profesor">
+    <resources name="No name">
+      <asset type="standup" uri="assets/animation/ProfesorLookingUp.eaa.xml" />
+      <asset type="standdown" uri="assets/animation/ProfesorLookingUp.eaa.xml" />
+      <asset type="standright" uri="assets/special/EmptyAnimation" />
+      <asset type="standleft" uri="assets/special/EmptyAnimation" />
+      <asset type="speakup" uri="assets/special/EmptyAnimation" />
+      <asset type="speakdown" uri="assets/special/EmptyAnimation" />
+      <asset type="speakright" uri="assets/special/EmptyAnimation" />
+      <asset type="speakleft" uri="assets/special/EmptyAnimation" />
+      <asset type="useright" uri="assets/special/EmptyAnimation" />
+      <asset type="useleft" uri="assets/special/EmptyAnimation" />
+      <asset type="walkup" uri="assets/special/EmptyAnimation" />
+      <asset type="walkdown" uri="assets/special/EmptyAnimation" />
+      <asset type="walkright" uri="assets/special/EmptyAnimation" />
+      <asset type="walkleft" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <textcolor showsSpeechBubble="no" bubbleBkgColor="#FFFFFF" bubbleBorderColor="#000000">
+      <frontcolor color="#FFFFFF" />
+      <bordercolor color="#000000" />
+    </textcolor>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <voice name="" synthesizeAlways="no" />
+  </character>
+  <character id="José">
+    <resources name="No name">
+      <asset type="standup" uri="assets/animation/JoseIdleDown.eaa.xml" />
+      <asset type="standdown" uri="assets/animation/JoseIdleDown.eaa.xml" />
+      <asset type="standright" uri="assets/special/EmptyAnimation" />
+      <asset type="standleft" uri="assets/special/EmptyAnimation" />
       <asset type="speakup" uri="assets/special/EmptyAnimation" />
       <asset type="speakdown" uri="assets/special/EmptyAnimation" />
       <asset type="speakright" uri="assets/special/EmptyAnimation" />
@@ -189,20 +251,39 @@
       </exit>
     </exits>
   </scene>
-  <scene id="Aula" start="no" playerLayer="-1" playerScale="0.4" class="accesible" type="area">
+  <scene id="Aula" start="no" playerLayer="-1" playerScale="0.45" class="accesible" type="area">
     <documentation>
     </documentation>
     <resources name="No name">
-      <asset type="background" uri="assets/background/fondoclase.png" />
+      <asset type="background" uri="assets/background/00Base.png" />
     </resources>
     <name>
     </name>
-    <default-initial-position x="1500" y="800" />
+    <default-initial-position x="489" y="880" />
     <exits>
-      <exit rectangular="yes" x="1520" y="375" width="91" height="375" hasInfluenceArea="no" idTarget="Pasillo" destinyY="900" destinyX="250" destinyScale="0.6" transitionType="0" transitionTime="0" not-effects="no">
+      <exit rectangular="yes" x="2" y="272" width="94" height="849" hasInfluenceArea="no" idTarget="Pasillo" destinyY="900" destinyX="250" destinyScale="0.6" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
       </exit>
     </exits>
+    <objects>
+      <object-ref idTarget="Silla1" x="997" y="1113" scale="1" layer="8" hasInfluenceArea="no" />
+      <object-ref idTarget="Silla2" x="968" y="1111" scale="1" layer="7" hasInfluenceArea="no" />
+      <object-ref idTarget="Silla3" x="1012" y="1110" scale="1" layer="6" hasInfluenceArea="no" />
+      <object-ref idTarget="Silla4" x="1020" y="1117" scale="1" layer="5" hasInfluenceArea="no" />
+      <object-ref idTarget="Mesa1" x="960" y="1152" scale="1" layer="10" hasInfluenceArea="no" />
+      <object-ref idTarget="Mesa2" x="967" y="1165" scale="1.05" layer="11" hasInfluenceArea="no" />
+      <object-ref idTarget="Mesa3" x="1023" y="1146" scale="1" layer="12" hasInfluenceArea="no" />
+      <object-ref idTarget="Mesa4" x="1056" y="1140" scale="1" layer="13" hasInfluenceArea="no" />
+      <object-ref idTarget="Silla1" x="713" y="1101" scale="1" layer="4" hasInfluenceArea="no" />
+      <object-ref idTarget="Mesa1" x="663" y="1146" scale="1" layer="9" hasInfluenceArea="no" />
+    </objects>
+    <characters>
+      <character-ref idTarget="Profesor" x="1829" y="1142" scale="1" orientation="0" layer="14" hasInfluenceArea="no" />
+      <character-ref idTarget="Allison" x="1120" y="829" scale="0.6" orientation="1" layer="0" hasInfluenceArea="no" />
+      <character-ref idTarget="José" x="1372" y="843" scale="0.6" orientation="2" layer="1" hasInfluenceArea="no" />
+      <character-ref idTarget="Guille" x="1624" y="847" scale="0.6" orientation="1" layer="3" hasInfluenceArea="no" />
+      <character-ref idTarget="María" x="891" y="839" scale="0.45" orientation="1" layer="2" hasInfluenceArea="no" />
+    </characters>
   </scene>
   <scene id="Baño" start="no" playerLayer="-1" playerScale="0.8" class="accesible" type="area">
     <documentation>
@@ -219,7 +300,7 @@
       </exit>
     </exits>
   </scene>
-  <scene id="mfhgjhgfcvl" start="yes" playerLayer="-1" playerScale="1.44E-05" class="accesible" type="area">
+  <scene id="Inicio" start="yes" playerLayer="-1" playerScale="1.44E-05" class="accesible" type="area">
     <documentation>
     </documentation>
     <resources name="No name">
@@ -228,13 +309,8 @@
     <name>
     </name>
     <default-initial-position x="615" y="650" />
-    <exits>
-      <exit rectangular="yes" x="197" y="126" width="43" height="599" hasInfluenceArea="no" idTarget="Aula" destinyY="1024" destinyX="937" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
-        <exit-look text="" cursor-path="" sound-path="" />
-      </exit>
-    </exits>
     <active-areas>
-      <active-area id="ItemId1" rectangular="yes" x="382" y="355" width="853" height="455" hasInfluenceArea="no" behaviour="first-action">
+      <active-area id="ItemId1" rectangular="yes" x="34" y="34" width="1201" height="776" hasInfluenceArea="no" behaviour="first-action">
         <description>
           <name>
           </name>
@@ -246,7 +322,7 @@
         <actions>
           <use needsGoTo="yes" keepDistance="35" not-effects="no">
             <effect>
-              <trigger-scene idTarget="Aula" x="979" y="810" />
+              <trigger-scene idTarget="Aula" x="530" y="827" scale="0.45" />
               <condition />
               <macro-ref id="MacroId" />
               <condition />
@@ -256,9 +332,51 @@
       </active-area>
     </active-areas>
   </scene>
-  <object id="ItemId" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+  <object id="Silla1" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
     <resources name="No name">
-      <asset type="image" uri="assets/special/EmptyImage.png" />
+      <asset type="image" uri="assets/image/03Chair1.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </object>
+  <object id="Silla2" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/03Chair2.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </object>
+  <object id="Silla3" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/03Chair3.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </object>
+  <object id="Silla4" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/03Chair4.png" />
       <asset type="icon" uri="assets/special/EmptyIcon.png" />
     </resources>
     <description>
@@ -298,14 +416,87 @@
       </detailed>
     </description>
   </object>
+  <object id="Mesa" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/special/EmptyImage.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </object>
+  <object id="Mesa1" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/04Table1.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </object>
+  <object id="Mesa2" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/04Table2.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </object>
+  <object id="Mesa3" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/04Table3.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </object>
+  <object id="Mesa4" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/04Table4.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </object>
   <macro id="MacroId">
-    <documentation>holahola</documentation>
-    <speak-player>Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.</speak-player>
+    <documentation>holaholaBueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno clase. La señorita Grotke está enferma y no podrá daros clase durante los proximos díasYo seré vuestro profesor sustitutoQue raro...La señorita Grotke nunca había faltado antes...Bueno clase. La señorita Grotke está enferma y no podrá daros clase durante los proximos días.Yo seré vuestro profesor sustituto.Que raro...La señorita Grotke nunca había faltado antes...Como no creo que vaya a estar mucho tiempo con vosotros podéis salir al recreo.Bueno clase. La señorita Grotke está enferma y no podrá daros clase durante los próximos días.Yo seré vuestro profesor sustituto.Que raro...La señorita Grotke nunca había faltado antes...Como no creo que vaya a estar mucho tiempo con vosotros podéis salir al recreo.</documentation>
+    <speak-char idTarget="Profesor">Bueno clase. La señorita Grotke no ha podido venir y yo daré clase durante los próximos días.</speak-char>
     <condition />
-    <show-text x="300" y="300" frontColor="#FFFFFFFF" borderColor="#000000FF" uri="">Yo seré vuestro sustituto durante los próximos días.</show-text>
+    <speak-char idTarget="Profesor">Yo seré vuestro profesor sustituto.</speak-char>
     <condition />
-    <speak-char idTarget="Chico">
-    </speak-char>
+    <speak-player>Que raro...</speak-player>
+    <condition />
+    <speak-player>La señorita Grotke nunca había faltado antes...</speak-player>
+    <condition />
+    <speak-char idTarget="Profesor">Como no creo que vaya a estar mucho tiempo con vosotros podéis salir al recreo.</speak-char>
     <condition />
   </macro>
 </eAdventure>
