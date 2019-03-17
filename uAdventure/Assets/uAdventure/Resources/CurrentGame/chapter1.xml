@@ -73,6 +73,9 @@
   </character>
   <character id="Ladron1">
     <resources name="No name">
+      <condition>
+        <inactive flag="attackedThiefs" />
+      </condition>
       <asset type="standup" uri="assets/animation/ladron1.eaa.xml" />
       <asset type="standdown" uri="assets/animation/ladron1.eaa.xml" />
       <asset type="standright" uri="assets/animation/ladron1.eaa.xml" />
@@ -88,6 +91,25 @@
       <asset type="walkright" uri="assets/special/EmptyAnimation" />
       <asset type="walkleft" uri="assets/special/EmptyAnimation" />
     </resources>
+    <resources name="No name">
+      <condition>
+        <active flag="attackedThiefs" />
+      </condition>
+      <asset type="standup" uri="assets/animation/ladron1Desnudo.eaa.xml" />
+      <asset type="standdown" uri="assets/animation/ladron1Desnudo.eaa.xml" />
+      <asset type="standright" uri="assets/animation/ladron1Desnudo.eaa.xml" />
+      <asset type="standleft" uri="assets/animation/ladron1Desnudo.eaa.xml" />
+      <asset type="speakup" uri="assets/special/EmptyAnimation" />
+      <asset type="speakdown" uri="assets/special/EmptyAnimation" />
+      <asset type="speakright" uri="assets/special/EmptyAnimation" />
+      <asset type="speakleft" uri="assets/special/EmptyAnimation" />
+      <asset type="useright" uri="assets/special/EmptyAnimation" />
+      <asset type="useleft" uri="assets/special/EmptyAnimation" />
+      <asset type="walkup" uri="assets/special/EmptyAnimation" />
+      <asset type="walkdown" uri="assets/special/EmptyAnimation" />
+      <asset type="walkright" uri="assets/special/EmptyAnimation" />
+      <asset type="walkleft" uri="assets/special/EmptyAnimation" />
+    </resources>
     <textcolor showsSpeechBubble="no" bubbleBkgColor="#FFFFFF" bubbleBorderColor="#000000">
       <frontcolor color="#FFFFFF" />
       <bordercolor color="#000000" />
@@ -105,6 +127,7 @@
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
         <condition>
           <inactive flag="LadronesFirstTime" />
+          <inactive flag="attackedThiefs" />
         </condition>
         <effect>
           <trigger-conversation idTarget="Ladrones1" />
@@ -118,9 +141,19 @@
           <inactive flag="hasApple" />
           <inactive flag="hasCoin" />
           <inactive flag="HasTalk" />
+          <inactive flag="attackedThiefs" />
         </condition>
         <effect>
           <trigger-conversation idTarget="LadronesIdle" />
+          <condition />
+        </effect>
+      </talk-to>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <active flag="attackedThiefs" />
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="Ladrones3" />
           <condition />
         </effect>
       </talk-to>
@@ -128,6 +161,9 @@
   </character>
   <character id="Ladron2">
     <resources name="No name">
+      <condition>
+        <inactive flag="attackedThiefs" />
+      </condition>
       <asset type="standup" uri="assets/animation/ladron2.eaa.xml" />
       <asset type="standdown" uri="assets/animation/ladron2.eaa.xml" />
       <asset type="standright" uri="assets/animation/ladron2.eaa.xml" />
@@ -143,50 +179,14 @@
       <asset type="walkright" uri="assets/special/EmptyAnimation" />
       <asset type="walkleft" uri="assets/special/EmptyAnimation" />
     </resources>
-    <textcolor showsSpeechBubble="no" bubbleBkgColor="#FFFFFF" bubbleBorderColor="#000000">
-      <frontcolor color="#FFFFFF" />
-      <bordercolor color="#000000" />
-    </textcolor>
-    <description>
-      <name>
-      </name>
-      <brief>
-      </brief>
-      <detailed>
-      </detailed>
-    </description>
-    <voice name="" synthesizeAlways="no" />
-    <actions>
-      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
-        <condition>
-          <inactive flag="LadronesFirstTime" />
-        </condition>
-        <effect>
-          <trigger-conversation idTarget="Ladrones1" />
-          <condition />
-          <activate flag="LadronesFirstTime" />
-          <condition />
-        </effect>
-      </talk-to>
-      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
-        <condition>
-          <inactive flag="hasApple" />
-          <inactive flag="hasCoin" />
-          <inactive flag="hasSword" />
-        </condition>
-        <effect>
-          <trigger-conversation idTarget="LadronesIdle" />
-          <condition />
-        </effect>
-      </talk-to>
-    </actions>
-  </character>
-  <character id="UmpaLumpa">
     <resources name="No name">
-      <asset type="standup" uri="assets/animation/umpaLumpa.eaa.xml" />
-      <asset type="standdown" uri="assets/animation/umpaLumpa.eaa.xml" />
-      <asset type="standright" uri="assets/animation/umpaLumpa.eaa.xml" />
-      <asset type="standleft" uri="assets/animation/umpaLumpa.eaa.xml" />
+      <condition>
+        <active flag="attackedThiefs" />
+      </condition>
+      <asset type="standup" uri="assets/animation/ladronDesnudo2.eaa.xml" />
+      <asset type="standdown" uri="assets/animation/ladronDesnudo2.eaa.xml" />
+      <asset type="standright" uri="assets/animation/ladronDesnudo2.eaa.xml" />
+      <asset type="standleft" uri="assets/animation/ladronDesnudo2.eaa.xml" />
       <asset type="speakup" uri="assets/special/EmptyAnimation" />
       <asset type="speakdown" uri="assets/special/EmptyAnimation" />
       <asset type="speakright" uri="assets/special/EmptyAnimation" />
@@ -213,8 +213,110 @@
     <voice name="" synthesizeAlways="no" />
     <actions>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <inactive flag="LadronesFirstTime" />
+          <inactive flag="attackedThiefs" />
+        </condition>
         <effect>
-          <trigger-conversation idTarget="UmpaLumpa" />
+          <trigger-conversation idTarget="Ladrones1" />
+          <condition />
+          <activate flag="LadronesFirstTime" />
+          <condition />
+        </effect>
+      </talk-to>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <inactive flag="hasApple" />
+          <inactive flag="hasCoin" />
+          <inactive flag="hasSword" />
+          <inactive flag="attackedThiefs" />
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="LadronesIdle" />
+          <condition />
+        </effect>
+      </talk-to>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <active flag="attackedThiefs" />
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="Ladrones3" />
+          <condition />
+        </effect>
+      </talk-to>
+    </actions>
+  </character>
+  <character id="UmpaLumpa">
+    <resources name="No name">
+      <condition>
+        <inactive flag="byeUmpaLumpa" />
+      </condition>
+      <asset type="standup" uri="assets/animation/umpaLumpa.eaa.xml" />
+      <asset type="standdown" uri="assets/animation/umpaLumpa.eaa.xml" />
+      <asset type="standright" uri="assets/animation/umpaLumpa.eaa.xml" />
+      <asset type="standleft" uri="assets/animation/umpaLumpa.eaa.xml" />
+      <asset type="speakup" uri="assets/special/EmptyAnimation" />
+      <asset type="speakdown" uri="assets/special/EmptyAnimation" />
+      <asset type="speakright" uri="assets/special/EmptyAnimation" />
+      <asset type="speakleft" uri="assets/special/EmptyAnimation" />
+      <asset type="useright" uri="assets/special/EmptyAnimation" />
+      <asset type="useleft" uri="assets/special/EmptyAnimation" />
+      <asset type="walkup" uri="assets/special/EmptyAnimation" />
+      <asset type="walkdown" uri="assets/special/EmptyAnimation" />
+      <asset type="walkright" uri="assets/special/EmptyAnimation" />
+      <asset type="walkleft" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <resources name="No name">
+      <condition>
+        <active flag="byeUmpaLumpa" />
+      </condition>
+      <asset type="standup" uri="assets/animation/vacia.eaa.xml" />
+      <asset type="standdown" uri="assets/animation/vacia.eaa.xml" />
+      <asset type="standright" uri="assets/animation/vacia.eaa.xml" />
+      <asset type="standleft" uri="assets/animation/vacia.eaa.xml" />
+      <asset type="speakup" uri="assets/special/EmptyAnimation" />
+      <asset type="speakdown" uri="assets/special/EmptyAnimation" />
+      <asset type="speakright" uri="assets/special/EmptyAnimation" />
+      <asset type="speakleft" uri="assets/special/EmptyAnimation" />
+      <asset type="useright" uri="assets/special/EmptyAnimation" />
+      <asset type="useleft" uri="assets/special/EmptyAnimation" />
+      <asset type="walkup" uri="assets/special/EmptyAnimation" />
+      <asset type="walkdown" uri="assets/special/EmptyAnimation" />
+      <asset type="walkright" uri="assets/special/EmptyAnimation" />
+      <asset type="walkleft" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <textcolor showsSpeechBubble="no" bubbleBkgColor="#FFFFFF" bubbleBorderColor="#000000">
+      <frontcolor color="#FFFFFF" />
+      <bordercolor color="#000000" />
+    </textcolor>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <voice name="" synthesizeAlways="no" />
+    <actions>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <inactive flag="talkHumpaLumpa" />
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="UmpaLumpa1" />
+          <condition />
+        </effect>
+      </talk-to>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <active flag="hasApple" />
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="UmpaLumpa2" />
+          <condition />
+          <activate flag="byeUmpaLumpa" />
           <condition />
         </effect>
       </talk-to>
@@ -254,7 +356,7 @@
       <side idStart="node5853" idEnd="node1129" length="453" />
     </trajectory>
   </scene>
-  <scene id="Bosque1" start="no" playerLayer="-1" playerScale="0.7999495" class="accesible" type="area">
+  <scene id="Bosque1" start="yes" playerLayer="-1" playerScale="0.7999495" class="accesible" type="area">
     <documentation>
     </documentation>
     <resources name="No name">
@@ -268,16 +370,26 @@
         <exit-look text="" cursor-path="" sound-path="" />
       </exit>
     </exits>
+    <objects>
+      <object-ref idTarget="Apple" x="738" y="727" scale="0.7" layer="0" hasInfluenceArea="no">
+        <condition>
+          <active flag="talkHumpaLumpa" />
+        </condition>
+      </object-ref>
+    </objects>
     <trajectory>
       <node id="initial" x="350" y="768" scale="1.901222" />
-      <node id="node5880" x="532" y="614" scale="1.107058" />
+      <node id="node5880" x="529" y="623" scale="1.107058" />
       <node id="node2076" x="691" y="569" scale="0.6775876" />
+      <node id="node6230" x="671" y="696" scale="1.326567" />
       <initialnode id="initial" />
-      <side idStart="initial" idEnd="node5880" length="238" />
-      <side idStart="node5880" idEnd="node2076" length="165" />
+      <side idStart="initial" idEnd="node5880" length="230" />
+      <side idStart="node5880" idEnd="node2076" length="170" />
+      <side idStart="node6230" idEnd="node5880" length="160" />
+      <side idStart="node6230" idEnd="initial" length="200" />
     </trajectory>
   </scene>
-  <scene id="Bosque2" start="yes" playerLayer="-1" playerScale="1.79483" class="accesible" type="area">
+  <scene id="Bosque2" start="no" playerLayer="-1" playerScale="1.79483" class="accesible" type="area">
     <documentation>
     </documentation>
     <resources name="No name">
@@ -293,8 +405,15 @@
       <exit rectangular="yes" x="-18" y="320" width="94" height="212" hasInfluenceArea="no" idTarget="Bosque3" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
       </exit>
-      <exit rectangular="yes" x="921" y="352" width="101" height="178" hasInfluenceArea="no" idTarget="Bosque4" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+      <exit rectangular="yes" x="921" y="352" width="101" height="178" hasInfluenceArea="no" idTarget="Bosque4" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="yes">
         <exit-look text="" cursor-path="" sound-path="" />
+        <condition>
+          <active flag="talkHumpaLumpa" />
+        </condition>
+        <not-effect>
+          <speak-player>Es por el otro lado.</speak-player>
+          <condition />
+        </not-effect>
       </exit>
     </exits>
     <characters>
@@ -329,7 +448,7 @@
       </exit>
     </exits>
     <characters>
-      <character-ref idTarget="UmpaLumpa" x="378" y="542" scale="1.42637" orientation="1" layer="0" hasInfluenceArea="no" />
+      <character-ref idTarget="UmpaLumpa" x="361" y="534" scale="1.42637" orientation="1" layer="0" hasInfluenceArea="yes" influenceX="-20" influenceY="-20" influenceWidth="225" influenceHeight="256" />
     </characters>
     <trajectory>
       <node id="initial" x="166" y="781" scale="1.959455" />
@@ -420,17 +539,88 @@
           <condition />
         </effect>
       </grab>
-      <custom-interact idTarget="" name="Atacar" needsGoTo="yes" keepDistance="0" not-effects="no">
-        <resources name="No name">
-          <asset type="buttonNormal" uri="assets/special/EmptyAnimation" />
-          <asset type="buttonOver" uri="assets/special/EmptyAnimation" />
-          <asset type="buttonPressed" uri="assets/special/EmptyAnimation" />
-        </resources>
-      </custom-interact>
+      <give-to idTarget="Ladron2" needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <speak-player>¡Tomad esto bellacos!</speak-player>
+          <condition />
+          <activate flag="attackedThiefs" />
+          <condition />
+          <speak-char idTarget="Ladron1">¡Esta bien no nos hagas daño!!</speak-char>
+          <condition />
+          <speak-char idTarget="Ladron2">¡Te daremos lo que quieras!</speak-char>
+          <condition />
+          <speak-player>Dadme una de esas manzanas que teneis.</speak-player>
+          <condition />
+          <speak-player>Y abandonad este tipo de vida.</speak-player>
+          <condition />
+          <generate-object idTarget="Apple" />
+          <condition />
+          <activate flag="hasApple" />
+          <condition />
+        </effect>
+      </give-to>
+      <give-to idTarget="Ladron1" needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <speak-player>¡Tomad esto bellacos!</speak-player>
+          <condition />
+          <activate flag="attackedThiefs" />
+          <condition />
+          <speak-char idTarget="Ladron1">¡Esta bien no nos hagas daño!!</speak-char>
+          <condition />
+          <speak-char idTarget="Ladron2">¡Te daremos lo que quieras!</speak-char>
+          <condition />
+          <speak-player>Dadme una de esas manzanas que teneis.</speak-player>
+          <condition />
+          <speak-player>Y abandonad este tipo de vida.</speak-player>
+          <condition />
+          <generate-object idTarget="Apple" />
+          <condition />
+          <activate flag="hasApple" />
+          <condition />
+        </effect>
+      </give-to>
+    </actions>
+  </object>
+  <object id="Apple" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/apple.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <actions>
+      <give-to idTarget="UmpaLumpa" needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <consume-object idTarget="Apple" />
+          <condition />
+          <trigger-conversation idTarget="UmpaLumpa2" />
+          <condition />
+          <activate flag="byeUmpaLumpa" />
+          <condition />
+        </effect>
+      </give-to>
+      <examine needsGoTo="no" keepDistance="0" not-effects="no" />
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <active flag="talkHumpaLumpa" />
+        </condition>
+        <effect>
+          <remove-element idTarget="Apple" />
+          <condition />
+          <generate-object idTarget="Apple" />
+          <condition />
+        </effect>
+      </grab>
     </actions>
   </object>
   <macro id="MacroId">
-    <documentation>holaholaBueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.</documentation>
+    <documentation>Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.</documentation>
     <speak-player>Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.</speak-player>
     <condition />
     <show-text x="300" y="300" frontColor="#FFFFFFFF" borderColor="#000000FF" uri="">Yo seré vuestro sustituto durante los próximos días.</show-text>
@@ -535,12 +725,37 @@
       <condition />
       <speak-char idTarget="UmpaLumpa">¡Ahora lárgo!</speak-char>
       <condition />
-      <end-conversation />
+      <end-conversation>
+        <effect>
+          <activate flag="talkHumpaLumpa" />
+          <condition />
+        </effect>
+      </end-conversation>
     </dialogue-node>
   </graph-conversation>
   <graph-conversation id="LadronesIdle">
     <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
       <speak-char idTarget="Ladron1">¡Lárgate!</speak-char>
+      <condition />
+      <end-conversation />
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="Ladrones3">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-char idTarget="Ladron1">A partir de ahora seremos mejores personas, es una promesa.</speak-char>
+      <condition />
+      <end-conversation />
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="UmpaLumpa2">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-player>Toma majo.</speak-player>
+      <condition />
+      <speak-char idTarget="UmpaLumpa">Umm una manzana, mi fruta preferida. ¡Gracias!</speak-char>
+      <condition />
+      <speak-char idTarget="UmpaLumpa">¡Ahh! ¡Que buena! Como te prometí puedes pasar</speak-char>
+      <condition />
+      <speak-char idTarget="UmpaLumpa">Estoy cansado. voy a echarme una siesta</speak-char>
       <condition />
       <end-conversation />
     </dialogue-node>
