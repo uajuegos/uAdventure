@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE animation PUBLIC "SYSTEM" "animation.dtd">
-<animation id="derecha.eaa.xml" usetransitions="no" slides="yes">
+<animation id="newClothesD.eaa.xml" usetransitions="no" slides="yes">
   <documentation />
   <transition type="none" time="0" />
-  <frame uri="assets/animation/iddle1D.png" type="image" time="600" waitforclick="no" soundUri="" maxSoundTime="1000">
+  <frame uri="assets/animation/iddle1Drojo.png" type="image" time="600" waitforclick="no" soundUri="" maxSoundTime="1000">
     <documentation>
     </documentation>
   </frame>
   <transition type="none" time="0" />
-  <frame uri="assets/animation/iddle2D.png" type="image" time="500" waitforclick="no" soundUri="" maxSoundTime="1000">
+  <frame uri="assets/animation/iddle2Drojo.png" type="image" time="500" waitforclick="no" soundUri="" maxSoundTime="1000">
     <documentation>
     </documentation>
   </frame>

@@ -3,10 +3,53 @@
 <eAdventure version="1">
   <player>
     <resources name="Prota">
+      <condition>
+        <inactive flag="naked" />
+        <inactive flag="newClothes" />
+      </condition>
       <asset type="standup" uri="assets/animation/AlexIdleUp.eaa.xml" />
       <asset type="standdown" uri="assets/animation/AlexIdleUp.eaa.xml" />
       <asset type="standright" uri="assets/animation/derecha.eaa.xml" />
       <asset type="standleft" uri="assets/animation/AlexIdleUp.eaa.xml" />
+      <asset type="speakup" uri="assets/special/EmptyAnimation" />
+      <asset type="speakdown" uri="assets/special/EmptyAnimation" />
+      <asset type="speakright" uri="assets/special/EmptyAnimation" />
+      <asset type="speakleft" uri="assets/special/EmptyAnimation" />
+      <asset type="useright" uri="assets/special/EmptyAnimation" />
+      <asset type="useleft" uri="assets/special/EmptyAnimation" />
+      <asset type="walkup" uri="assets/animation/AlexIdleUp.eaa.xml" />
+      <asset type="walkdown" uri="assets/animation/AlexIdleUp.eaa.xml" />
+      <asset type="walkright" uri="assets/animation/derecha.eaa.xml" />
+      <asset type="walkleft" uri="assets/animation/AlexIdleUp.eaa.xml" />
+    </resources>
+    <resources name="ProtaDesnudo">
+      <condition>
+        <active flag="naked" />
+        <inactive flag="newClothes" />
+      </condition>
+      <asset type="standup" uri="assets/animation/naked.eaa.xml" />
+      <asset type="standdown" uri="assets/animation/naked.eaa.xml" />
+      <asset type="standright" uri="assets/animation/nakedD.eaa.xml" />
+      <asset type="standleft" uri="assets/animation/naked.eaa.xml" />
+      <asset type="speakup" uri="assets/special/EmptyAnimation" />
+      <asset type="speakdown" uri="assets/special/EmptyAnimation" />
+      <asset type="speakright" uri="assets/special/EmptyAnimation" />
+      <asset type="speakleft" uri="assets/special/EmptyAnimation" />
+      <asset type="useright" uri="assets/special/EmptyAnimation" />
+      <asset type="useleft" uri="assets/special/EmptyAnimation" />
+      <asset type="walkup" uri="assets/special/EmptyAnimation" />
+      <asset type="walkdown" uri="assets/special/EmptyAnimation" />
+      <asset type="walkright" uri="assets/special/EmptyAnimation" />
+      <asset type="walkleft" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <resources name="newClothes">
+      <condition>
+        <active flag="newClothes" />
+      </condition>
+      <asset type="standup" uri="assets/animation/newClothes.eaa.xml" />
+      <asset type="standdown" uri="assets/animation/newClothes.eaa.xml" />
+      <asset type="standright" uri="assets/animation/newClothesD.eaa.xml" />
+      <asset type="standleft" uri="assets/animation/newClothes.eaa.xml" />
       <asset type="speakup" uri="assets/special/EmptyAnimation" />
       <asset type="speakdown" uri="assets/special/EmptyAnimation" />
       <asset type="speakright" uri="assets/special/EmptyAnimation" />
@@ -140,7 +183,7 @@
         <condition>
           <inactive flag="hasApple" />
           <inactive flag="hasCoin" />
-          <inactive flag="HasTalk" />
+          <inactive flag="hasSword" />
           <inactive flag="attackedThiefs" />
         </condition>
         <effect>
@@ -154,6 +197,16 @@
         </condition>
         <effect>
           <trigger-conversation idTarget="Ladrones3" />
+          <condition />
+        </effect>
+      </talk-to>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <active flag="hasApple" />
+          <inactive flag="hasSword" />
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="Ladrones2" />
           <condition />
         </effect>
       </talk-to>
@@ -322,6 +375,174 @@
       </talk-to>
     </actions>
   </character>
+  <character id="Herrero">
+    <resources name="No name">
+      <condition>
+        <inactive flag="hero" />
+      </condition>
+      <asset type="standup" uri="assets/animation/herrero.eaa.xml" />
+      <asset type="standdown" uri="assets/animation/herrero.eaa.xml" />
+      <asset type="standright" uri="assets/animation/herrero.eaa.xml" />
+      <asset type="standleft" uri="assets/animation/herrero.eaa.xml" />
+      <asset type="speakup" uri="assets/special/EmptyAnimation" />
+      <asset type="speakdown" uri="assets/special/EmptyAnimation" />
+      <asset type="speakright" uri="assets/special/EmptyAnimation" />
+      <asset type="speakleft" uri="assets/special/EmptyAnimation" />
+      <asset type="useright" uri="assets/special/EmptyAnimation" />
+      <asset type="useleft" uri="assets/special/EmptyAnimation" />
+      <asset type="walkup" uri="assets/special/EmptyAnimation" />
+      <asset type="walkdown" uri="assets/special/EmptyAnimation" />
+      <asset type="walkright" uri="assets/special/EmptyAnimation" />
+      <asset type="walkleft" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <resources name="Hero">
+      <condition>
+        <active flag="hero" />
+      </condition>
+      <asset type="standup" uri="assets/animation/hero.eaa.xml" />
+      <asset type="standdown" uri="assets/animation/hero.eaa.xml" />
+      <asset type="standright" uri="assets/animation/hero.eaa.xml" />
+      <asset type="standleft" uri="assets/animation/hero.eaa.xml" />
+      <asset type="speakup" uri="assets/special/EmptyAnimation" />
+      <asset type="speakdown" uri="assets/special/EmptyAnimation" />
+      <asset type="speakright" uri="assets/special/EmptyAnimation" />
+      <asset type="speakleft" uri="assets/special/EmptyAnimation" />
+      <asset type="useright" uri="assets/special/EmptyAnimation" />
+      <asset type="useleft" uri="assets/special/EmptyAnimation" />
+      <asset type="walkup" uri="assets/special/EmptyAnimation" />
+      <asset type="walkdown" uri="assets/special/EmptyAnimation" />
+      <asset type="walkright" uri="assets/special/EmptyAnimation" />
+      <asset type="walkleft" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <textcolor showsSpeechBubble="no" bubbleBkgColor="#FFFFFF" bubbleBorderColor="#000000">
+      <frontcolor color="#FFFFFF" />
+      <bordercolor color="#000000" />
+    </textcolor>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <voice name="" synthesizeAlways="no" />
+    <actions>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <trigger-conversation idTarget="Herrero1Naked" />
+          <condition>
+            <active flag="naked" />
+          </condition>
+          <trigger-conversation idTarget="Herrero1" />
+          <condition>
+            <inactive flag="naked" />
+          </condition>
+        </effect>
+      </talk-to>
+    </actions>
+  </character>
+  <character id="Caballo">
+    <resources name="No name">
+      <asset type="standup" uri="assets/animation/caballo.eaa.xml" />
+      <asset type="standdown" uri="assets/animation/caballo.eaa.xml" />
+      <asset type="standright" uri="assets/animation/caballo.eaa.xml" />
+      <asset type="standleft" uri="assets/animation/caballo.eaa.xml" />
+      <asset type="speakup" uri="assets/special/EmptyAnimation" />
+      <asset type="speakdown" uri="assets/special/EmptyAnimation" />
+      <asset type="speakright" uri="assets/special/EmptyAnimation" />
+      <asset type="speakleft" uri="assets/special/EmptyAnimation" />
+      <asset type="useright" uri="assets/special/EmptyAnimation" />
+      <asset type="useleft" uri="assets/special/EmptyAnimation" />
+      <asset type="walkup" uri="assets/special/EmptyAnimation" />
+      <asset type="walkdown" uri="assets/special/EmptyAnimation" />
+      <asset type="walkright" uri="assets/special/EmptyAnimation" />
+      <asset type="walkleft" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <textcolor showsSpeechBubble="no" bubbleBkgColor="#FFFFFF" bubbleBorderColor="#000000">
+      <frontcolor color="#FFFFFF" />
+      <bordercolor color="#000000" />
+    </textcolor>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <voice name="" synthesizeAlways="no" />
+    <actions>
+      <examine needsGoTo="no" keepDistance="0" not-effects="no">
+        <effect>
+          <speak-player>Humm... es el caballo del justiciero... le falta el antifaz...</speak-player>
+          <condition />
+        </effect>
+      </examine>
+    </actions>
+  </character>
+  <character id="ladron1Reformado">
+    <resources name="No name">
+      <asset type="standup" uri="assets/animation/ladron1R.eaa.xml" />
+      <asset type="standdown" uri="assets/special/EmptyAnimation" />
+      <asset type="standright" uri="assets/special/EmptyAnimation" />
+      <asset type="standleft" uri="assets/special/EmptyAnimation" />
+      <asset type="speakup" uri="assets/special/EmptyAnimation" />
+      <asset type="speakdown" uri="assets/special/EmptyAnimation" />
+      <asset type="speakright" uri="assets/special/EmptyAnimation" />
+      <asset type="speakleft" uri="assets/special/EmptyAnimation" />
+      <asset type="useright" uri="assets/special/EmptyAnimation" />
+      <asset type="useleft" uri="assets/special/EmptyAnimation" />
+      <asset type="walkup" uri="assets/special/EmptyAnimation" />
+      <asset type="walkdown" uri="assets/special/EmptyAnimation" />
+      <asset type="walkright" uri="assets/special/EmptyAnimation" />
+      <asset type="walkleft" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <textcolor showsSpeechBubble="no" bubbleBkgColor="#FFFFFF" bubbleBorderColor="#000000">
+      <frontcolor color="#FFFFFF" />
+      <bordercolor color="#000000" />
+    </textcolor>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <voice name="" synthesizeAlways="no" />
+  </character>
+  <character id="ladron2Reformado">
+    <resources name="No name">
+      <asset type="standup" uri="assets/animation/ladron2R.eaa.xml" />
+      <asset type="standdown" uri="assets/special/EmptyAnimation" />
+      <asset type="standright" uri="assets/special/EmptyAnimation" />
+      <asset type="standleft" uri="assets/special/EmptyAnimation" />
+      <asset type="speakup" uri="assets/special/EmptyAnimation" />
+      <asset type="speakdown" uri="assets/special/EmptyAnimation" />
+      <asset type="speakright" uri="assets/special/EmptyAnimation" />
+      <asset type="speakleft" uri="assets/special/EmptyAnimation" />
+      <asset type="useright" uri="assets/special/EmptyAnimation" />
+      <asset type="useleft" uri="assets/special/EmptyAnimation" />
+      <asset type="walkup" uri="assets/special/EmptyAnimation" />
+      <asset type="walkdown" uri="assets/special/EmptyAnimation" />
+      <asset type="walkright" uri="assets/special/EmptyAnimation" />
+      <asset type="walkleft" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <textcolor showsSpeechBubble="no" bubbleBkgColor="#FFFFFF" bubbleBorderColor="#000000">
+      <frontcolor color="#FFFFFF" />
+      <bordercolor color="#000000" />
+    </textcolor>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <voice name="" synthesizeAlways="no" />
+  </character>
   <scene id="PuebloInicio" start="no" playerLayer="-1" playerScale="1.656952" class="accesible" type="area">
     <documentation>
     </documentation>
@@ -356,7 +577,7 @@
       <side idStart="node5853" idEnd="node1129" length="453" />
     </trajectory>
   </scene>
-  <scene id="Bosque1" start="yes" playerLayer="-1" playerScale="0.7999495" class="accesible" type="area">
+  <scene id="Bosque1" start="no" playerLayer="-1" playerScale="0.7999495" class="accesible" type="area">
     <documentation>
     </documentation>
     <resources name="No name">
@@ -366,14 +587,24 @@
     </name>
     <default-initial-position x="224" y="362" />
     <exits>
-      <exit rectangular="yes" x="634" y="456" width="153" height="110" hasInfluenceArea="yes" idTarget="Bosque2" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no" influenceX="14" influenceY="-10" influenceWidth="128" influenceHeight="134">
+      <exit rectangular="yes" x="634" y="456" width="153" height="117" hasInfluenceArea="yes" idTarget="Bosque2" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no" influenceX="14" influenceY="-10" influenceWidth="128" influenceHeight="134">
         <exit-look text="" cursor-path="" sound-path="" />
+        <post-effect>
+          <trigger-conversation idTarget="Ladrones2" />
+          <condition>
+            <active flag="hasApple" />
+            <inactive flag="hasSword" />
+            <inactive flag="naked" />
+          </condition>
+        </post-effect>
       </exit>
     </exits>
     <objects>
-      <object-ref idTarget="Apple" x="738" y="727" scale="0.7" layer="0" hasInfluenceArea="no">
+      <object-ref idTarget="Apple" x="738" y="727" scale="0.7" layer="0" hasInfluenceArea="yes" influenceX="-57" influenceY="-19" influenceWidth="161" influenceHeight="137">
         <condition>
           <active flag="talkHumpaLumpa" />
+          <inactive flag="hasApple" />
+          <inactive flag="hasSword" />
         </condition>
       </object-ref>
     </objects>
@@ -399,7 +630,7 @@
     </name>
     <default-initial-position x="502" y="770" />
     <exits>
-      <exit rectangular="yes" x="388" y="708" width="236" height="69" hasInfluenceArea="no" idTarget="Bosque1" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+      <exit rectangular="yes" x="388" y="708" width="236" height="69" hasInfluenceArea="no" idTarget="Bosque1" destinyY="591" destinyX="684" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
       </exit>
       <exit rectangular="yes" x="-18" y="320" width="94" height="212" hasInfluenceArea="no" idTarget="Bosque3" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
@@ -409,16 +640,41 @@
         <exit-look text="" cursor-path="" sound-path="" />
         <condition>
           <active flag="talkHumpaLumpa" />
+          <inactive flag="naked" />
         </condition>
         <not-effect>
           <speak-player>Es por el otro lado.</speak-player>
-          <condition />
+          <condition>
+            <inactive flag="naked" />
+          </condition>
+          <speak-player>No debería ir por aquí todavía, los ladrones están ahí.</speak-player>
+          <condition>
+            <active flag="naked" />
+          </condition>
         </not-effect>
       </exit>
     </exits>
+    <objects>
+      <object-ref idTarget="Apple" x="495" y="537" scale="0.3492463" layer="2" hasInfluenceArea="yes" influenceX="-55" influenceY="-34" influenceWidth="134" influenceHeight="128">
+        <condition>
+          <active flag="naked" />
+          <inactive flag="byHero" />
+        </condition>
+      </object-ref>
+    </objects>
     <characters>
-      <character-ref idTarget="Ladron1" x="559" y="526" scale="0.8906078" orientation="1" layer="0" hasInfluenceArea="yes" influenceX="-20" influenceY="-26" influenceWidth="164" influenceHeight="186" />
-      <character-ref idTarget="Ladron2" x="406" y="531" scale="0.8717036" orientation="1" layer="1" hasInfluenceArea="no" />
+      <character-ref idTarget="Ladron1" x="559" y="526" scale="0.8906078" orientation="1" layer="0" hasInfluenceArea="yes" influenceX="-20" influenceY="-26" influenceWidth="164" influenceHeight="186">
+        <condition>
+          <inactive flag="naked" />
+          <inactive flag="byHero" />
+        </condition>
+      </character-ref>
+      <character-ref idTarget="Ladron2" x="406" y="531" scale="0.8717036" orientation="1" layer="1" hasInfluenceArea="no">
+        <condition>
+          <inactive flag="naked" />
+          <inactive flag="byHero" />
+        </condition>
+      </character-ref>
     </characters>
     <trajectory>
       <node id="initial" x="502" y="770" scale="1.79483" />
@@ -443,12 +699,30 @@
     </name>
     <default-initial-position x="184" y="786" />
     <exits>
-      <exit rectangular="yes" x="6" y="646" width="417" height="120" hasInfluenceArea="no" idTarget="Bosque2" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+      <exit rectangular="yes" x="6" y="646" width="417" height="120" hasInfluenceArea="no" idTarget="Bosque2" destinyY="552" destinyX="57" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+      <exit rectangular="yes" x="270" y="249" width="232" height="313" hasInfluenceArea="no" idTarget="Pueblo2" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+        <condition>
+          <active flag="byeUmpaLumpa" />
+        </condition>
       </exit>
     </exits>
     <characters>
       <character-ref idTarget="UmpaLumpa" x="361" y="534" scale="1.42637" orientation="1" layer="0" hasInfluenceArea="yes" influenceX="-20" influenceY="-20" influenceWidth="225" influenceHeight="256" />
+      <character-ref idTarget="ladron1Reformado" x="641" y="542" scale="0.8971367" orientation="0" layer="2" hasInfluenceArea="no">
+        <condition>
+          <inactive flag="newClothes" />
+          <active flag="byHero" />
+        </condition>
+      </character-ref>
+      <character-ref idTarget="ladron2Reformado" x="544" y="539" scale="0.9205911" orientation="0" layer="1" hasInfluenceArea="no">
+        <condition>
+          <inactive flag="newClothes" />
+          <active flag="byHero" />
+        </condition>
+      </character-ref>
     </characters>
     <trajectory>
       <node id="initial" x="166" y="781" scale="1.959455" />
@@ -469,13 +743,29 @@
     </name>
     <default-initial-position x="724" y="761" />
     <exits>
-      <exit rectangular="yes" x="492" y="681" width="527" height="74" hasInfluenceArea="no" idTarget="Bosque2" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+      <exit rectangular="yes" x="492" y="681" width="527" height="74" hasInfluenceArea="no" idTarget="Bosque2" destinyY="535" destinyX="954" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
       </exit>
     </exits>
     <objects>
-      <object-ref idTarget="Sword" x="184" y="478" scale="0.4076746" layer="0" hasInfluenceArea="yes" influenceX="-26" influenceY="-35" influenceWidth="156" influenceHeight="129" />
+      <object-ref idTarget="Sword" x="184" y="478" scale="0.4076746" layer="0" hasInfluenceArea="yes" influenceX="-26" influenceY="-35" influenceWidth="156" influenceHeight="129">
+        <condition>
+          <inactive flag="naked" />
+        </condition>
+      </object-ref>
     </objects>
+    <characters>
+      <character-ref idTarget="Ladron1" x="630" y="543" scale="0.792917" orientation="1" layer="2" hasInfluenceArea="yes" influenceX="-20" influenceY="-16" influenceWidth="156" influenceHeight="176">
+        <condition>
+          <active flag="naked" />
+        </condition>
+      </character-ref>
+      <character-ref idTarget="Ladron2" x="559" y="561" scale="0.7403924" orientation="1" layer="1" hasInfluenceArea="no">
+        <condition>
+          <active flag="naked" />
+        </condition>
+      </character-ref>
+    </characters>
     <trajectory>
       <node id="initial" x="724" y="761" scale="1.986247" />
       <node id="node4517" x="364" y="666" scale="1.317746" />
@@ -485,6 +775,53 @@
       <side idStart="initial" idEnd="node4517" length="372" />
       <side idStart="node2570" idEnd="node4517" length="141" />
       <side idStart="node2570" idEnd="node852" length="244" />
+    </trajectory>
+  </scene>
+  <scene id="Pueblo2" start="yes" playerLayer="-1" playerScale="1.233333" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/Town2.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="901" y="609" />
+    <exits>
+      <exit rectangular="yes" x="908" y="259" width="103" height="484" hasInfluenceArea="no" idTarget="Bosque3" destinyY="500" destinyX="371" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+        <post-effect>
+          <trigger-conversation idTarget="LadronesReformados" />
+          <condition>
+            <inactive flag="newClothes" />
+            <active flag="byHero" />
+          </condition>
+        </post-effect>
+      </exit>
+    </exits>
+    <characters>
+      <character-ref idTarget="Caballo" x="423" y="313" scale="1.159305" orientation="1" layer="1" hasInfluenceArea="no">
+        <condition>
+          <inactive flag="hero" />
+        </condition>
+      </character-ref>
+      <character-ref idTarget="Herrero" x="137" y="578" scale="1.365757" orientation="1" layer="0" hasInfluenceArea="yes" influenceX="-20" influenceY="-20" influenceWidth="254" influenceHeight="225">
+        <condition>
+          <inactive flag="byHero" />
+        </condition>
+      </character-ref>
+    </characters>
+    <trajectory>
+      <node id="initial" x="901" y="609" scale="1.233333" />
+      <node id="node790" x="256" y="558" scale="1.233333" />
+      <node id="node6898" x="533" y="322" scale="0.763141" />
+      <node id="node1092" x="529" y="469" scale="0.9826367" />
+      <initialnode id="initial" />
+      <side idStart="initial" idEnd="node1092" length="397" />
+      <side idStart="initial" idEnd="node6898" length="467" />
+      <side idStart="node6898" idEnd="node1092" length="147" />
+      <side idStart="initial" idEnd="node790" length="647" />
+      <side idStart="node790" idEnd="node1092" length="287" />
+      <side idStart="node790" idEnd="node6898" length="364" />
     </trajectory>
   </scene>
   <object id="Pergamino" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
@@ -605,22 +942,41 @@
           <condition />
         </effect>
       </give-to>
-      <examine needsGoTo="no" keepDistance="0" not-effects="no" />
+      <examine needsGoTo="no" keepDistance="0" not-effects="no">
+        <effect>
+          <speak-player>Oh una manzana, tiene buen aspecto.</speak-player>
+          <condition />
+        </effect>
+      </examine>
       <grab needsGoTo="yes" keepDistance="35" not-effects="no">
         <condition>
           <active flag="talkHumpaLumpa" />
         </condition>
         <effect>
-          <remove-element idTarget="Apple" />
-          <condition />
           <generate-object idTarget="Apple" />
+          <condition />
+          <activate flag="hasApple" />
           <condition />
         </effect>
       </grab>
     </actions>
   </object>
+  <object id="Coin" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/bronze_coin.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </object>
   <macro id="MacroId">
-    <documentation>Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.</documentation>
+    <documentation>Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.</documentation>
     <speak-player>Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.</speak-player>
     <condition />
     <show-text x="300" y="300" frontColor="#FFFFFFFF" borderColor="#000000FF" uri="">Yo seré vuestro sustituto durante los próximos días.</show-text>
@@ -756,6 +1112,259 @@
       <speak-char idTarget="UmpaLumpa">¡Ahh! ¡Que buena! Como te prometí puedes pasar</speak-char>
       <condition />
       <speak-char idTarget="UmpaLumpa">Estoy cansado. voy a echarme una siesta</speak-char>
+      <condition />
+      <end-conversation />
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="Ladrones2">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-char idTarget="Ladron1">¡Eh! ¡Te dijimos que te largaras de aquí!</speak-char>
+      <condition />
+      <speak-char idTarget="Ladron2">¡Se acabó, quítate la ropa y danos todo lo que tengas!</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <consume-object idTarget="Pergamino" />
+          <condition />
+          <consume-object idTarget="Apple" />
+          <condition />
+          <speak-player>Malditos ladrones... Se han ido por la derecha...</speak-player>
+          <condition />
+          <speak-player>Se han dejado una de sus manzanas...</speak-player>
+          <condition />
+          <activate flag="naked" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="Herrero1">
+    <dialogue-node nodeindex="0" editor-x="70" editor-y="139">
+      <speak-player>Buenos días, estoy buscando al herrero del pueblo...</speak-player>
+      <condition />
+      <speak-char idTarget="Herrero">Hmm... ¿Para que quieres hablar con él?</speak-char>
+      <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <option-node nodeindex="1" preListening="yes" editor-x="674" editor-y="100" x="674" y="100">
+      <speak-player>Me envía mi maestro.</speak-player>
+      <condition />
+      <child nodeindex="2" />
+      <speak-player>Creo que el herrero es mi padre.</speak-player>
+      <condition />
+      <child nodeindex="3" />
+      <speak-player>Quiero comprar una espada.</speak-player>
+      <condition />
+      <child nodeindex="4" />
+    </option-node>
+    <dialogue-node nodeindex="2" editor-x="950" editor-y="41">
+      <speak-player>Me envía mi maestro desde el otro lado del bosque.</speak-player>
+      <condition />
+      <speak-player>Debo entregar este pergamino al herrero.</speak-player>
+      <condition />
+      <speak-char idTarget="Herrero">¿Desde el otro lado del bosque?</speak-char>
+      <condition />
+      <speak-char idTarget="Herrero">¿Has cruzado esos páramos tú solo únicamente para traerme este pergamino?</speak-char>
+      <condition />
+      <speak-char idTarget="Herrero">Debes estar loco... o ser un inconsciente...</speak-char>
+      <condition />
+      <speak-player>¡Trae para aquí!</speak-player>
+      <condition />
+      <child nodeindex="5" />
+      <effect>
+        <consume-object idTarget="Pergamino" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="3" editor-x="928" editor-y="430">
+      <speak-player>Vengo desde muy lejos para conocer a mi padre.</speak-player>
+      <condition />
+      <speak-player>Tengo sospechas de que es él.</speak-player>
+      <condition />
+      <speak-char idTarget="Herrero">¡Eso es imposible chaval! Ninguna mujer ha besado este bigote nunca.</speak-char>
+      <condition />
+      <speak-player>¿Como? ¿Eres tú el herrero?</speak-player>
+      <condition />
+      <speak-char idTarget="Herrero">Tu también te has dado cuenta eh...</speak-char>
+      <condition />
+      <speak-char idTarget="Herrero">¿Qué quieres?</speak-char>
+      <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <dialogue-node nodeindex="4" editor-x="328" editor-y="462">
+      <speak-player>Vengo desde muy lejos para comprar una de sus espadas.</speak-player>
+      <condition />
+      <speak-char idTarget="Herrero">Veo que ya tienes una espada... ¡No me mientas! </speak-char>
+      <condition />
+      <speak-char idTarget="Herrero">Dime la verdad ¿Para qué le buscas?</speak-char>
+      <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <dialogue-node nodeindex="5" editor-x="1277" editor-y="76">
+      <speak-char idTarget="Herrero">Muchas gracias chico. Dale esto a tu maestro como agradecimiento.</speak-char>
+      <condition />
+      <speak-player>Se lo daré señor.</speak-player>
+      <condition />
+      <child nodeindex="6" />
+      <effect>
+        <generate-object idTarget="Coin" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="6" editor-x="1241" editor-y="336">
+      <speak-char idTarget="Herrero">¿Dices que vienes del busque?</speak-char>
+      <condition />
+      <speak-char idTarget="Herrero">Han robado esta mañana un cargamento de manzanas a las afueras del pueblo.</speak-char>
+      <condition />
+      <speak-char idTarget="Herrero">¿No habrás visto nada? ¡Estoy deseando acabar con ellos!</speak-char>
+      <condition />
+      <child nodeindex="7" />
+    </dialogue-node>
+    <option-node nodeindex="7" question="¿Que hacer con los ladrones reformados?" random="yes" preListening="yes" editor-x="1736" editor-y="332" x="1736" y="332">
+      <speak-player>Encubrirlos.</speak-player>
+      <condition />
+      <child nodeindex="8" />
+      <speak-player>Delatarlos.</speak-player>
+      <condition />
+      <child nodeindex="9" />
+    </option-node>
+    <dialogue-node nodeindex="8" editor-x="1837" editor-y="69">
+      <speak-player>¡Sí! Los vi salir del pueblo con un carro lleno de manzanas.</speak-player>
+      <condition />
+      <speak-player>Se dirigían hacia el este, justo al otro lado del bosque.</speak-player>
+      <condition />
+      <speak-char idTarget="Herrero">¡Muchas gracias muchacho!</speak-char>
+      <condition />
+      <child nodeindex="10" />
+    </dialogue-node>
+    <dialogue-node nodeindex="9" editor-x="2159" editor-y="426">
+      <speak-player>¡Sí! Tuve un encuentro con ellos en el bosque...</speak-player>
+      <condition />
+      <speak-player>Me enfrenté a ellos y me prometieron cambiar de vida.</speak-player>
+      <condition />
+      <speak-player>Si te das prisa seguro que recuperas las manzanas.</speak-player>
+      <condition />
+      <child nodeindex="10" />
+    </dialogue-node>
+    <dialogue-node nodeindex="10" editor-x="2254" editor-y="69">
+      <speak-char idTarget="Herrero">¡Voy a por ellos!</speak-char>
+      <condition />
+      <child nodeindex="11" />
+      <effect>
+        <activate flag="hero" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="11" editor-x="2489" editor-y="69">
+      <speak-char idTarget="Herrero">¡A por ellos, Tormenta!</speak-char>
+      <condition />
+      <child nodeindex="12" />
+      <effect>
+        <activate flag="byHero" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="12" editor-x="2724" editor-y="69">
+      <speak-player>Debería volver para avisar al maestro.</speak-player>
+      <condition />
+      <end-conversation />
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="Herrero1Naked">
+    <dialogue-node nodeindex="0" editor-x="91" editor-y="45">
+      <speak-char idTarget="Herrero">¡¿Que te ha pasado muchacho?! ¿Y tu ropa?</speak-char>
+      <condition />
+      <speak-player>Me encontré con unos ladrones de manzanas en el bosque y me robaron todo lo que tenía.</speak-player>
+      <condition />
+      <speak-char idTarget="Herrero">¿Que hacías en el bosque tu solo?</speak-char>
+      <condition />
+      <speak-player>Me envía mi maestro para entregarle un pergamino al herrero.</speak-player>
+      <condition />
+      <speak-char idTarget="Herrero">Hmm... eso hace que me sienta responsable... </speak-char>
+      <condition />
+      <speak-char idTarget="Herrero">Yo soy el herrero muchacho.</speak-char>
+      <condition />
+      <speak-char idTarget="Herrero">¿Así que te han robado el pergamino de tu maestro?</speak-char>
+      <condition />
+      <speak-player>Sí, estaban en el bosque rojo.</speak-player>
+      <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <dialogue-node nodeindex="1" editor-x="799" editor-y="45">
+      <speak-char idTarget="Herrero">¡Esto no puede quedar así! </speak-char>
+      <condition />
+      <speak-char idTarget="Herrero">Toma algo de ropa, póntela y reúnete conmigo en el bosque. Les daremos una lección.</speak-char>
+      <condition />
+      <speak-player>¡Gracias!</speak-player>
+      <condition />
+      <child nodeindex="2" />
+      <effect>
+        <activate flag="hero" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="2" editor-x="1265" editor-y="45">
+      <speak-char idTarget="Herrero">¡Adelante Tormenta!</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <activate flag="byHero" />
+          <condition />
+          <activate flag="newClothes" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="LadronesReformados">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-player>¿Quienes sois vosotros?</speak-player>
+      <condition />
+      <speak-char idTarget="ladron1Reformado">¿No nos reconoces?</speak-char>
+      <condition />
+      <speak-char idTarget="ladron2Reformado">Somos los ladrones de manzanas!</speak-char>
+      <condition />
+      <speak-char idTarget="ladron1Reformado">Te prometimos dejar nuestra vida de fechorías y el guardián del bosque nos dió una segunda oportunidad.</speak-char>
+      <condition />
+      <speak-char idTarget="ladron1Reformado">¡Ahora somos guardianes de los bosques!</speak-char>
+      <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <option-node nodeindex="1" random="yes" editor-x="786" editor-y="50" x="786" y="50">
+      <speak-player>Felicitarles.</speak-player>
+      <condition />
+      <child nodeindex="2" />
+      <speak-player>Reirse de ellos.</speak-player>
+      <condition />
+      <child nodeindex="3" />
+      <speak-player>Pasar de ellos.</speak-player>
+      <condition />
+      <child nodeindex="4" />
+    </option-node>
+    <dialogue-node nodeindex="2" editor-x="1004" editor-y="-13">
+      <speak-player>¡Oh vaya! ¡Me alegro mucho por vosotros!</speak-player>
+      <condition />
+      <speak-player>Seguro que los bosques estarán más seguros con vosotros como guardianes.</speak-player>
+      <condition />
+      <speak-player>¡Hasta pronto!</speak-player>
+      <condition />
+      <speak-char idTarget="ladron2Reformado">#! ¡Adios!</speak-char>
+      <condition />
+      <end-conversation />
+    </dialogue-node>
+    <dialogue-node nodeindex="3" editor-x="1006" editor-y="244">
+      <speak-player>jajajajajajaja me parto de risa</speak-player>
+      <condition />
+      <speak-player>¿Guardianes vosotros?</speak-player>
+      <condition />
+      <speak-player>¡Pero si sois muy feos!</speak-player>
+      <condition />
+      <speak-char idTarget="ladron2Reformado">:(</speak-char>
+      <condition />
+      <end-conversation />
+    </dialogue-node>
+    <dialogue-node nodeindex="4" editor-x="407" editor-y="451">
+      <speak-player>Me alegro...</speak-player>
       <condition />
       <end-conversation />
     </dialogue-node>
