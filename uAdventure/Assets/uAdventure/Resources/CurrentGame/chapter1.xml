@@ -107,8 +107,32 @@
     <voice name="" synthesizeAlways="no" />
     <actions>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <inactive flag="HasTalk" />
+        </condition>
         <effect>
           <trigger-conversation idTarget="ConverInicio" />
+          <condition />
+        </effect>
+      </talk-to>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <active flag="HasTalk" />
+          <active flag="pergaminoEntregado" />
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="MaestroFinExito" />
+          <condition />
+        </effect>
+      </talk-to>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <documentation>Created with target conversation: MaestroIddle</documentation>
+        <condition>
+          <active flag="HasTalk" />
+          <inactive flag="pergaminoEntregado" />
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="MaestroIddle" />
           <condition />
         </effect>
       </talk-to>
@@ -484,9 +508,9 @@
   <character id="ladron1Reformado">
     <resources name="No name">
       <asset type="standup" uri="assets/animation/ladron1R.eaa.xml" />
-      <asset type="standdown" uri="assets/special/EmptyAnimation" />
-      <asset type="standright" uri="assets/special/EmptyAnimation" />
-      <asset type="standleft" uri="assets/special/EmptyAnimation" />
+      <asset type="standdown" uri="assets/animation/ladron1R.eaa.xml" />
+      <asset type="standright" uri="assets/animation/ladron1R.eaa.xml" />
+      <asset type="standleft" uri="assets/animation/ladron1R.eaa.xml" />
       <asset type="speakup" uri="assets/special/EmptyAnimation" />
       <asset type="speakdown" uri="assets/special/EmptyAnimation" />
       <asset type="speakright" uri="assets/special/EmptyAnimation" />
@@ -515,9 +539,9 @@
   <character id="ladron2Reformado">
     <resources name="No name">
       <asset type="standup" uri="assets/animation/ladron2R.eaa.xml" />
-      <asset type="standdown" uri="assets/special/EmptyAnimation" />
-      <asset type="standright" uri="assets/special/EmptyAnimation" />
-      <asset type="standleft" uri="assets/special/EmptyAnimation" />
+      <asset type="standdown" uri="assets/animation/ladron2R.eaa.xml" />
+      <asset type="standright" uri="assets/animation/ladron2R.eaa.xml" />
+      <asset type="standleft" uri="assets/animation/ladron2R.eaa.xml" />
       <asset type="speakup" uri="assets/special/EmptyAnimation" />
       <asset type="speakdown" uri="assets/special/EmptyAnimation" />
       <asset type="speakright" uri="assets/special/EmptyAnimation" />
@@ -543,7 +567,7 @@
     </description>
     <voice name="" synthesizeAlways="no" />
   </character>
-  <scene id="PuebloInicio" start="no" playerLayer="-1" playerScale="1.656952" class="accesible" type="area">
+  <scene id="PuebloInicio" start="yes" playerLayer="-1" playerScale="1.656952" class="accesible" type="area">
     <documentation>
     </documentation>
     <resources name="No name">
@@ -675,6 +699,16 @@
           <inactive flag="byHero" />
         </condition>
       </character-ref>
+      <character-ref idTarget="Herrero" x="500" y="555" scale="1" orientation="1" layer="3" hasInfluenceArea="no">
+        <condition>
+          <active flag="byHero" />
+          <active flag="delatado" />
+          <either>
+            <inactive flag="hasRing" />
+            <inactive flag="heroAttack" />
+          </either>
+        </condition>
+      </character-ref>
     </characters>
     <trajectory>
       <node id="initial" x="502" y="770" scale="1.79483" />
@@ -701,6 +735,19 @@
     <exits>
       <exit rectangular="yes" x="6" y="646" width="417" height="120" hasInfluenceArea="no" idTarget="Bosque2" destinyY="552" destinyX="57" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
+        <post-effect>
+          <trigger-conversation idTarget="HeroDelatado" />
+          <condition>
+            <active flag="byHero" />
+            <active flag="delatado" />
+          </condition>
+          <trigger-conversation idTarget="HeroNaked" />
+          <condition>
+            <active flag="byHero" />
+            <inactive flag="delatado" />
+            <active flag="naked" />
+          </condition>
+        </post-effect>
       </exit>
       <exit rectangular="yes" x="270" y="249" width="232" height="313" hasInfluenceArea="no" idTarget="Pueblo2" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
@@ -755,14 +802,22 @@
       </object-ref>
     </objects>
     <characters>
-      <character-ref idTarget="Ladron1" x="630" y="543" scale="0.792917" orientation="1" layer="2" hasInfluenceArea="yes" influenceX="-20" influenceY="-16" influenceWidth="156" influenceHeight="176">
+      <character-ref idTarget="Ladron1" x="630" y="543" scale="0.792917" orientation="1" layer="3" hasInfluenceArea="yes" influenceX="-20" influenceY="-16" influenceWidth="156" influenceHeight="176">
         <condition>
           <active flag="naked" />
+          <inactive flag="ladronesHuyen" />
         </condition>
       </character-ref>
-      <character-ref idTarget="Ladron2" x="559" y="561" scale="0.7403924" orientation="1" layer="1" hasInfluenceArea="no">
+      <character-ref idTarget="Ladron2" x="559" y="561" scale="0.7403924" orientation="1" layer="2" hasInfluenceArea="no">
         <condition>
           <active flag="naked" />
+          <inactive flag="ladronesHuyen" />
+        </condition>
+      </character-ref>
+      <character-ref idTarget="Herrero" x="295" y="740" scale="1.997864" orientation="1" layer="1" hasInfluenceArea="no">
+        <condition>
+          <active flag="byHero" />
+          <active flag="heroAttack" />
         </condition>
       </character-ref>
     </characters>
@@ -777,7 +832,7 @@
       <side idStart="node2570" idEnd="node852" length="244" />
     </trajectory>
   </scene>
-  <scene id="Pueblo2" start="yes" playerLayer="-1" playerScale="1.233333" class="accesible" type="area">
+  <scene id="Pueblo2" start="no" playerLayer="-1" playerScale="1.233333" class="accesible" type="area">
     <documentation>
     </documentation>
     <resources name="No name">
@@ -844,6 +899,20 @@
           <condition />
         </effect>
       </examine>
+      <give-to idTarget="Herrero" needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <active flag="byHero" />
+          <active flag="ladronesHuyen" />
+        </condition>
+        <effect>
+          <consume-object idTarget="Pergamino" />
+          <condition />
+          <trigger-conversation idTarget="HeroFin" />
+          <condition />
+          <activate flag="pergaminoEntregado" />
+          <condition />
+        </effect>
+      </give-to>
     </actions>
   </object>
   <object id="Sword" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
@@ -975,8 +1044,22 @@
       </detailed>
     </description>
   </object>
+  <object id="Anillo" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/bronze ring.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </object>
   <macro id="MacroId">
-    <documentation>Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.</documentation>
+    <documentation>Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.Yo seré vuestro sustituto durante los próximos días.</documentation>
     <speak-player>Bueno, clase. Hoy la Srta Grotke no puede venir, está enferma.</speak-player>
     <condition />
     <show-text x="300" y="300" frontColor="#FFFFFFFF" borderColor="#000000FF" uri="">Yo seré vuestro sustituto durante los próximos días.</show-text>
@@ -1174,6 +1257,8 @@
       <effect>
         <consume-object idTarget="Pergamino" />
         <condition />
+        <activate flag="pergaminoEntregado" />
+        <condition />
       </effect>
     </dialogue-node>
     <dialogue-node nodeindex="3" editor-x="928" editor-y="430">
@@ -1220,7 +1305,7 @@
       <condition />
       <child nodeindex="7" />
     </dialogue-node>
-    <option-node nodeindex="7" question="¿Que hacer con los ladrones reformados?" random="yes" preListening="yes" editor-x="1736" editor-y="332" x="1736" y="332">
+    <option-node nodeindex="7" question="¿Que hacer con los ladrones reformados?" random="yes" keepShowing="yes" preListening="yes" editor-x="1736" editor-y="332" x="1736" y="332">
       <speak-player>Encubrirlos.</speak-player>
       <condition />
       <child nodeindex="8" />
@@ -1245,6 +1330,10 @@
       <speak-player>Si te das prisa seguro que recuperas las manzanas.</speak-player>
       <condition />
       <child nodeindex="10" />
+      <effect>
+        <activate flag="delatado" />
+        <condition />
+      </effect>
     </dialogue-node>
     <dialogue-node nodeindex="10" editor-x="2254" editor-y="69">
       <speak-char idTarget="Herrero">¡Voy a por ellos!</speak-char>
@@ -1330,7 +1419,7 @@
       <condition />
       <child nodeindex="1" />
     </dialogue-node>
-    <option-node nodeindex="1" random="yes" editor-x="786" editor-y="50" x="786" y="50">
+    <option-node nodeindex="1" random="yes" preListening="yes" editor-x="786" editor-y="50" x="786" y="50">
       <speak-player>Felicitarles.</speak-player>
       <condition />
       <child nodeindex="2" />
@@ -1341,7 +1430,7 @@
       <condition />
       <child nodeindex="4" />
     </option-node>
-    <dialogue-node nodeindex="2" editor-x="1004" editor-y="-13">
+    <dialogue-node nodeindex="2" editor-x="1004">
       <speak-player>¡Oh vaya! ¡Me alegro mucho por vosotros!</speak-player>
       <condition />
       <speak-player>Seguro que los bosques estarán más seguros con vosotros como guardianes.</speak-player>
@@ -1365,6 +1454,151 @@
     </dialogue-node>
     <dialogue-node nodeindex="4" editor-x="407" editor-y="451">
       <speak-player>Me alegro...</speak-player>
+      <condition />
+      <end-conversation />
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="HeroNaked">
+    <dialogue-node nodeindex="0" editor-x="46" editor-y="75">
+      <speak-char idTarget="Herrero">!Eh, muchacho! ¡He registrado la zona pero no hay ni rastro de los maleantes ni de las manzanas!</speak-char>
+      <condition />
+      <speak-char idTarget="Herrero">¿Por donde se marcharon?</speak-char>
+      <condition />
+      <speak-player>Se fueron por la derecha, hacia el este...</speak-player>
+      <condition />
+      <speak-char idTarget="Herrero">¡Vayamos a investigar!</speak-char>
+      <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <dialogue-node nodeindex="1" editor-x="554" editor-y="75">
+      <speak-player>!Debería seguirle!</speak-player>
+      <condition />
+      <end-conversation>
+        <effect>
+          <activate flag="heroAttack" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="HeroDelatado">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-char idTarget="Herrero">¡Eh muchacho! ¡Mira esto!</speak-char>
+      <condition />
+      <speak-char idTarget="Herrero">No he encontrado a esos malditos ladrones... ¡pero he recuperado las manzanas!</speak-char>
+      <condition />
+      <speak-char idTarget="Herrero">Algo les tuvo que haber hecho cambiar de opinión con sus fechorias...</speak-char>
+      <condition />
+      <speak-char idTarget="Herrero">Seguro que fueron los guardianes del bosque.</speak-char>
+      <condition />
+      <speak-char idTarget="Herrero">Como recompensa por tus buenas acciones te daré uno de mis amuletos...</speak-char>
+      <condition />
+      <speak-player>¿Que es?</speak-player>
+      <condition />
+      <speak-char idTarget="Herrero">Es un anillo mágico, te dará suerte para tus próximas aventuras...</speak-char>
+      <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <dialogue-node nodeindex="1" editor-x="751" editor-y="50">
+      <speak-char idTarget="Herrero">Toma chico, vuelve con tu maestro.</speak-char>
+      <condition />
+      <speak-char idTarget="Herrero">¡Hasta la próxima!</speak-char>
+      <condition />
+      <child nodeindex="2" />
+      <effect>
+        <generate-object idTarget="Anillo" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="2" editor-x="808" editor-y="277">
+      <speak-player>¡Gracias!</speak-player>
+      <condition />
+      <end-conversation>
+        <effect>
+          <activate flag="hasRing" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="HeroAttack">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-char idTarget="Herrero">¡Eh vosotros! ¡Devolvedme mis manzanas!</speak-char>
+      <condition />
+      <speak-char idTarget="Ladron1">¡¿Eh?!¿Como nos has encontrado?</speak-char>
+      <condition />
+      <speak-char idTarget="Ladron2">Ha sido ese maldito muchacho...</speak-char>
+      <condition />
+      <speak-char idTarget="Herrero">Dejaos de bobadas y devolvedme las manzanas y el pergamino del chico</speak-char>
+      <condition />
+      <speak-char idTarget="Ladron1">Deberíamos hacerle caso... ¡He oído que es un hombre muy peligroso!</speak-char>
+      <condition />
+      <speak-char idTarget="Ladron2">¡Tírale el pergamino y sal corriendo!</speak-char>
+      <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <dialogue-node nodeindex="1" editor-x="118" editor-y="392">
+      <speak-char idTarget="Ladron1">¡Corre!</speak-char>
+      <condition />
+      <child nodeindex="2" />
+      <effect>
+        <generate-object idTarget="Pergamino" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="2" editor-x="353" editor-y="392">
+      <speak-char idTarget="Herrero">¡Vaya cobardes! Con las ganas que tenía de un buen combate...</speak-char>
+      <condition />
+      <speak-char idTarget="Herrero">Creo que tienes algo para mi...</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <activate flag="ladronesHuyen" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="HeroFin">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-char idTarget="Herrero">¡Oh vaya! ¡Muchas gracias!</speak-char>
+      <condition />
+      <speak-char idTarget="Herrero">¡Has sido muy valiente! Toma esto.</speak-char>
+      <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <dialogue-node nodeindex="1" editor-x="46" editor-y="279">
+      <speak-char idTarget="Herrero">Es uno de mis amuletos. Un anillo mágico que te protegerá de los peligros.</speak-char>
+      <condition />
+      <speak-player>¡Muchas gracias!</speak-player>
+      <condition />
+      <speak-char idTarget="Herrero">¡Ten cuidado chico! ¡Nos vemos pronto!</speak-char>
+      <condition />
+      <child nodeindex="2" />
+      <effect>
+        <generate-object idTarget="Anillo" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="2" editor-x="489" editor-y="279">
+      <end-conversation>
+        <effect>
+          <activate flag="hasRing" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="MaestroFinExito">
+    <dialogue-node nodeindex="0" editor-x="51" editor-y="90">
+      <speak-char idTarget="Maestro">¡Hola chico! ¡has vuelto! ¡Cuéntame tus aventuras!</speak-char>
+      <condition />
+      <end-conversation />
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="MaestroIddle">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-char idTarget="Maestro">¡Tienes que entregarle el pergamino al herrero! </speak-char>
       <condition />
       <end-conversation />
     </dialogue-node>
