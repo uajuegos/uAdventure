@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 <comment>comment</comment>
@@ -68,7 +68,7 @@
 <entry key="ActionButton.Talk">Hablar con...</entry>
 <entry key="GameText.PleaseWait">Por favor, espera</entry>
 <entry key="ErrorReport.Comments">Por favor, utilice este espacio para escribir sus comentarios y sugerencias</entry>
-<entry key="ActionButton.UseGive">Usar con../Usar con..</entry>
+<entry key="ActionButton.UseGive">Usar con../Dar a..</entry>
 <entry key="Report.Importance.High">Alto</entry>
 <entry key="ErrorMessage.Title">Fichero no válido. Por favor, selecciona otro nuevamente</entry>
 <entry key="DebugFrame.GlobalStates">Estados globales</entry>
@@ -81,7 +81,7 @@
 <entry key="GameText.Talk">Hablar</entry>
 <entry key="GameText.TextUseNPC2">Ehhh... ¿NO?</entry>
 <entry key="GameText.TextUseNPC1">¿Usarlo? ¿Cómo podría hacerlo?</entry>
-<entry key="ActionButton.GiveTo">Usar con..</entry>
+<entry key="ActionButton.GiveTo">Dar a..</entry>
 <entry key="Report.Importance">Importancia</entry>
 <entry key="GameText.ExitGame">Salir del juego</entry>
 <entry key="GameText.Empty">Vacío</entry>

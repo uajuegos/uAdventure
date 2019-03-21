@@ -7,7 +7,7 @@
     <documentation>
     </documentation>
   </frame>
-  <transition type="none" time="0" />
+  <transition type="none" time="600" />
   <frame uri="assets/animation/iddle2D.png" type="image" time="500" waitforclick="no" soundUri="" maxSoundTime="1000">
     <documentation>
     </documentation>
