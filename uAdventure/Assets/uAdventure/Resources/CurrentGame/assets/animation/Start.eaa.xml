@@ -8,4 +8,9 @@
     </documentation>
   </frame>
   <transition type="none" time="0" />
+  <frame uri="assets/animation/recursos.png" type="image" time="40" waitforclick="no" soundUri="" maxSoundTime="1000">
+    <documentation>
+    </documentation>
+  </frame>
+  <transition type="none" time="0" />
 </animation>
